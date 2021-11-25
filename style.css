@@ -35,9 +35,16 @@ header>img {
     /*overflow-y: hidden;*/
 }
 
-div.nav-h1-container {
+body>div {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.nav-h1-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-self: center;
 }
 
 .nav-list {
@@ -50,16 +57,22 @@ div.nav-h1-container {
 .nav-list>div {
     padding: 5px;
     border: 2px #dd881b solid;
+    border-radius: 20px;
     background: linear-gradient(180deg, hsla(34, 78%, 49%, 0%), #de8a1b 100%);
     text-align: center;
     font-size: 16px;
 }
 
+.nav-list>div>a {
+    color: var(--lightGrey) !important;
+    font-weight: bold;
+}
+
 h1 {
     display: flex;
-    padding: 8px;
+    padding: 20px;
     border: 3px double var(--waterGrey);
-    border-radius: 25%;
+    border-radius: 50%;
     width: fit-content;
     justify-items: center;
     text-align: center;
@@ -67,7 +80,11 @@ h1 {
     background-color: #dd881b;
     font-size: 2rem !important;
 }
-*
+
+nav {
+    width: 100%;
+}
+
 h2 {
     font-size: 1.8rem !important;  
 }
@@ -84,15 +101,15 @@ h3 {
     height: auto;
 }
 
+.articles {
+    width: 100%;
+    /*margin: auto;*/
+    background-color: #eef4d4;
+}
+
 .article {
     display: flex;
     flex-direction: column;
-}
-
-.articles {
-    width: 100%;
-    margin: auto;
-    background-color: #eef4d4;
 }
 
 .meet-datas {
@@ -103,7 +120,7 @@ h3 {
 
 div.article>div>div>span {
     font-size: 22px;
-    border: 1px var(--lightGrey) solid ;
+    border: 1px var(--lightGrey) dashed ;
 }
 
 p {
@@ -134,15 +151,16 @@ footer {
 
 @media screen and (min-width: 769px){
     body>div, .nav-list{
+        margin: auto;
         width: 769px;
-        margin: 0 auto 0 auto;
     }
-    
+    .articles {
+    display: flex;
+    justify-content: center;
+    }
     .nav-h1-container {
-        display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         width: 100%;
-        
     }
     h1 {
         display: flex;
@@ -161,7 +179,6 @@ footer {
     .nav-list>div {
         padding: 10px 30px 10px 30px;
         border: 2px #dd881b solid;
-        border-radius: 20px;
         background: linear-gradient(180deg, hsla(34, 78%, 49%, 0%), #de8a1b 100%);
         font-size: 25px;
     }
@@ -170,6 +187,22 @@ footer {
     }
     footer {
         font-size: 1.5rem;
+    }
+    
+    .hSpacer {
+        display: none;
+    }
+    
+    .vSpacer {
+        background: linear-gradient(180deg, #daefb3 0%, #de8a1b 100%);
+        /*width : clamp(10px, 6vw, 20px); N' AFFICHE PAS LES BONNES VALEURS ???*/
+        width: 6vw;
+        min-width: 10px;
+        max-width: 20px;
+        height: 50vh;
+        border-radius: 0 0 50% 50%;
+        margin-left: 1vw;
+        margin-right: 1vw;        
     }
 }
 
@@ -185,32 +218,20 @@ footer {
     }
     .articles {
         background-color:  #eef4d4;
-        width: 100vw;
+        width: 100%;
         display: flex;
+        justify-content: center;
     }
     p {
         font-size: 1.5rem;
     }
-    .spacer {
+    /*.spacer {
         display: none;
-    }
+    }*/
     .article {
         margin: 5px;
         flex: 1;
         width: 40%;
-    }
-    
-    .hSpacer {
-        display: none;
-    }
-    
-    .vSpacer {
-        background: linear-gradient(180deg, #daefb3 0%, #de8a1b 100%);
-        width: 1vw;
-        height: 50vh;
-        border-radius: 0 0 50% 50%;
-        margin-left: 1vw;
-        margin-right: 1vw;        
     }
     footer {
         font-size: 2rem;
